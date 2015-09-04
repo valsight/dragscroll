@@ -50,7 +50,7 @@
                 );
                  
                  _window[addEventListener](
-                     mouseup, el.mu = function() {pushed = 0;}, 0
+                     mouseup, el.mu = function() {pushed = 0; el.removeAttribute('data-drag');}, 0
                  );
                  
                 _window[addEventListener](
@@ -62,6 +62,8 @@
                                  (- lastClientX + (lastClientX=e.clientX));
                              scroller.scrollTop -=
                                  (- lastClientY + (lastClientY=e.clientY));
+
+                            el.setAttribute('data-drag', true);
                         }
                     }, 0
                 );
